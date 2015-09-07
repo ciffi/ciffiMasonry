@@ -2965,16 +2965,16 @@ if ( typeof define === 'function' && define.amd ) {
  * # ciffiMasonry
  * Factory in the mcsrepoApp.
  */
-angular.module('cdNgMemorygameApp')
+angular.module('cd-ngMasonry', [])
   .factory('ciffiMasonry', function () {
 
     return {
       init: function() {
         //console.log(container,item);
       },
-      rebuild: function(container,duration) {
+      rebuild: function(container,duration, gutter) {
         var msnry = new window.Masonry(container, {
-          gutter: 0,
+          gutter: (!gutter) ? 0 : parseInt(gutter),
           transitionDuration: duration
         });
         msnry.bindResize();
